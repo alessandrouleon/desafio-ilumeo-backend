@@ -61,11 +61,10 @@ export class PointRecordRepository implements PointRecordRepositoryContract {
           createdAt: 'desc',
         },
         where: {
-          OR: [
-            {
-              userCode: { contains: value },
-            },
-          ],
+          userCode: { equals: value },
+          finishedAt: {
+            not: null,
+          },
         },
       }),
     ]);

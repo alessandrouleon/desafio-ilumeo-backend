@@ -17,7 +17,6 @@ export class FinishPointRecordUseCase {
     userCode: string,
     data: FinishPointRecordDto,
   ): Promise<PointRecordEntity> {
-    console.log('userCode::', userCode);
     const existUserCode =
       await this.pointRecordRepository.findByUserCode(userCode);
 
