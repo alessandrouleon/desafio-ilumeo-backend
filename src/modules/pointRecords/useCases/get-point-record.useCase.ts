@@ -8,6 +8,7 @@ import {
 } from 'src/utils/pagination';
 import { PaginatedPointRecordDTO } from '../dtos/paginated-point-record.dto';
 import { PointRecordEntity } from '../entities/point-record.entity';
+import { OpenPointRecordDto } from '../dtos/open-point-record.dto';
 
 @Injectable()
 export class GetPointRecordUseCase {
@@ -55,5 +56,13 @@ export class GetPointRecordUseCase {
     const { skip, take, page } = getParametersToPaginate(pageNumber);
     if (!value) return this.getAllPointRecordPaginated({ page, skip, take });
     if (value) return this.getValuesInPointRecords(value, { page, skip, take });
+  }
+
+  public async getSingleByOpenUserCode(
+    data: OpenPointRecordDto,
+  ): Promise<PointRecordEntity> {
+    const findByOpenUserCode =
+      await this.repositoryPointRecord.findUserCodeInProgress(data.userCode);
+    return findByOpenUserCode;
   }
 }

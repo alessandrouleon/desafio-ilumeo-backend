@@ -49,6 +49,20 @@ export class PointRecordRepository implements PointRecordRepositoryContract {
     return findUserCode;
   }
 
+  public async findUserCodeInProgress(
+    userCode: string,
+  ): Promise<PointRecordEntity> {
+    const existUserCode = await this.repository.pointRecord.findFirst({
+      where: {
+        userCode: {
+          equals: userCode,
+        },
+        finishedAt: null,
+      },
+    });
+    return existUserCode;
+  }
+
   public async findFilteredPointRecordWithPagination(
     value: string,
     { take, page }: PaginatedData,

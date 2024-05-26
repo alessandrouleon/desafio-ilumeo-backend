@@ -13,6 +13,7 @@ import { GetPointRecordUseCase } from '../useCases/get-point-record.useCase';
 import { CreatePointRecordDto } from '../dtos/create-point-record.dto';
 import { FinishPointRecordDto } from '../dtos/finish-point-record.dto';
 import { FinishPointRecordUseCase } from '../useCases/finish-point-record.useCase';
+import { OpenPointRecordDto } from '../dtos/open-point-record.dto';
 
 @Controller('pointRecords')
 export class PointRecordController {
@@ -41,5 +42,10 @@ export class PointRecordController {
     @Query() search: SearchValueInColumn,
   ) {
     return this.getPointRecordUseCase.getPointRecords(search, page);
+  }
+
+  @Get('/singleCode')
+  async searchSingleUserCode(@Query() data: OpenPointRecordDto) {
+    return this.getPointRecordUseCase.getSingleByOpenUserCode(data);
   }
 }

@@ -16,6 +16,7 @@ export interface PointRecordRepositoryContract {
   ): Promise<PointRecordEntity>;
   findByUserCode(userCode: string): Promise<PointRecordEntity>;
   findByOpenUserCode(userCode: string): Promise<PointRecordEntity>;
+  findUserCodeInProgress(userCode: string): Promise<PointRecordEntity>;
   findFilteredPointRecordWithPagination(
     value: string,
     parametersToPaginate: PaginatedData,
