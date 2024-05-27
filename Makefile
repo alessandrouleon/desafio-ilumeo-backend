@@ -8,12 +8,6 @@ backend:
 
 .PHONY: backend
 
-deploy:
-	git pull
-	docker-compose up -d --build 
-
-.PHONY: deploy
-
 up:
 	docker compose up -d 
 

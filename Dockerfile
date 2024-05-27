@@ -8,7 +8,7 @@ ENV PORT=${DOCKER_PORT}
 
 WORKDIR /usr/app
 
-ENV TZ=America/Manaus
+ENV TZ=America/Sao_Paulo
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 

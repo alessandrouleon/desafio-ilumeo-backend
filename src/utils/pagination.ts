@@ -18,7 +18,7 @@ export const paginateResponse = ({ total, page, take }: PaginatedData) => {
 
 export function getParametersToPaginate(
   page: number,
-  take: number = 11,
+  take: number = 30,
 ): { take: number; skip: number; page: number } {
   return { page: Number(page) || 1, skip: (Number(page) - 1) * take, take };
 }

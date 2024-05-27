@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 services:
   backend-esd:
     image: backend:latest
@@ -8,7 +8,7 @@ services:
       args:
         NODE_ENV: ${NODE_ENV}
         PORT: ${DOCKER_PORT}
-    container_name: backend-esd
+    container_name: backend-ilumeo
     volumes:
       - '/etc/localtime:/etc/localtime:ro'
       - '/etc/timezone:/etc/timezone:ro'
