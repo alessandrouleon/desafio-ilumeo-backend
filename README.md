@@ -28,6 +28,7 @@ make backend
 
 #### caso a pasta dados_postgresql estiver protegida, quando criar a imagem do backend favor rodar o comando.
  sudo chmod -R 777 dados_postgresql
+ 
 
 
 

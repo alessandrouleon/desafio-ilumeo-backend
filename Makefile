@@ -4,7 +4,9 @@ build:
 .PHONY: build
 
 backend:
-	docker-compose -f docker-compose-backend.yaml up -d
+	yarn
+	yarn build
+	docker-compose -f docker-compose-backend.yaml up -d --build
 
 .PHONY: backend
 
@@ -22,4 +24,3 @@ logs:
 	docker logs mysql -f
 
 .PHONY: logs
-
